@@ -1,5 +1,3 @@
-package PBOKelasKelompok;
-
 import java.time.LocalDate;
 
 public class Pembayaran {
