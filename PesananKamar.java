@@ -9,52 +9,47 @@ public class PesananKamar {
     private String statusPesanan;
     private List<Kamar> daftarKamar;
 
+    // Selektor
     public Pelanggan getPelanggan() {
         return pelanggan;
     }
-
-    public void setPelanggan(Pelanggan pelanggan) {
-        this.pelanggan = pelanggan;
-    }
-
     public String getNomorPesanan() {
         return nomorPesanan;
     }
-
-    public void setNomorPesanan(String nomorPesanan) {
-        this.nomorPesanan = nomorPesanan;
-    }
-
     public LocalDate getTanggalCheckIn() {
         return tanggalCheckIn;
     }
-
-    public void setTanggalCheckIn(LocalDate tanggalCheckIn) {
-        this.tanggalCheckIn = tanggalCheckIn;
-    }
-
     public LocalDate getTanggalCheckOut() {
         return tanggalCheckOut;
     }
-
-    public void setTanggalCheckOut(LocalDate tanggalCheckOut) {
-        this.tanggalCheckOut = tanggalCheckOut;
-    }
-
     public String getStatusPesanan() {
         return statusPesanan;
     }
-
-    public void setStatusPesanan(String statusPesanan) {
-        this.statusPesanan = statusPesanan;
-    }
-
     public List<Kamar> getDaftarKamar() {
         return daftarKamar;
     }
 
+    // Mutator
+    public void setPelanggan(Pelanggan pelanggan) {
+        this.pelanggan = pelanggan;
+    }
+    public void setNomorPesanan(String nomorPesanan) {
+        this.nomorPesanan = nomorPesanan;
+    }
+    public void setTanggalCheckIn(LocalDate tanggalCheckIn) {
+        this.tanggalCheckIn = tanggalCheckIn;
+    }
+    public void setTanggalCheckOut(LocalDate tanggalCheckOut) {
+        this.tanggalCheckOut = tanggalCheckOut;
+    }
+    public void setStatusPesanan(String statusPesanan) {
+        this.statusPesanan = statusPesanan;
+    }
     public void setDaftarKamar(List<Kamar> daftarKamar) {
         this.daftarKamar = daftarKamar;
     }
 
+    public void tambahDaftarKamar(Kamar kamar) {
+        this.daftarKamar.add(kamar);
+    }
 }

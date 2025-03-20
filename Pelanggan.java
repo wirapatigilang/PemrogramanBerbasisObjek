@@ -7,6 +7,7 @@ public class Pelanggan {
     private String email;
     private List<PesananKamar> daftarPesanan;
 
+    // Konstruktor
     public Pelanggan () {
         this.nama = "";
         this.alamat = "";
