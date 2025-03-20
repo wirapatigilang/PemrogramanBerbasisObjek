@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TipeKamar {
@@ -9,7 +10,9 @@ public class TipeKamar {
     // Method
 
     public TipeKamar() {
-
+        this.namaTipe = "";
+        this.harga = 0;
+        this.fasilitas = new ArrayList<>();
     };
 
     public TipeKamar(String namaTipe, double harga, List<String> fasilitas) {

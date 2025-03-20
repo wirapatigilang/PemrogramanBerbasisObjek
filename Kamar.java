@@ -4,7 +4,9 @@ public class Kamar {
     private TipeKamar tipe;
 
     public Kamar() {
-
+        this.nomorKamar = "";
+        this.statusKamar = "";
+        this.tipe = new TipeKamar();
     }
 
     public Kamar (String nomorKamar, String statusKamar, TipeKamar tipe) {
