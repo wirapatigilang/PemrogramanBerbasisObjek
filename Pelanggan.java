@@ -8,4 +8,5 @@ public class Pelanggan{
 
 
     // di sini di ubah
+    // hallo
 }
