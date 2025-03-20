@@ -6,6 +6,14 @@ public class Pembayaran {
     private String StatusPembayaran;
     private LocalDate TanggalPembayaran;
 
+    // Konstruktor
+    public Pembayaran() {
+        this.MetodePembayaran = "Tunai";
+        this.JumlahBayar = 0.0;
+        this.StatusPembayaran = "Pending";
+        this.TanggalPembayaran = LocalDate.now();
+    }
+
     public Pembayaran(String MetodePembayaran, double JumlahBayar, String StatusPembayaran, LocalDate TanggalPembayaran) {
         this.MetodePembayaran = MetodePembayaran;
         this.JumlahBayar = JumlahBayar;
@@ -13,34 +21,30 @@ public class Pembayaran {
         this.TanggalPembayaran = TanggalPembayaran;
     }
 
+    // Selektor
     public String getMetodePembayaran() {
         return MetodePembayaran;
     }
-
-    public void setMetodePembayaran(String MetodePembayaran) {
-        this.MetodePembayaran = MetodePembayaran;
-    }
-
     public double getJumlahBayar() {
         return JumlahBayar;
     }
-
-    public void setJumlahBayar(double JumlahBayar) {
-        this.JumlahBayar = JumlahBayar;
-    }
-
     public String getStatusPembayaran() {
         return StatusPembayaran;
     }
-
-    public void setStatusPembayaran(String StatusPembayaran) {
-        this.StatusPembayaran = StatusPembayaran;
-    }
-
     public LocalDate getTanggalPembayaran() {
         return TanggalPembayaran;
     }
 
+    // Mutator
+    public void setMetodePembayaran(String MetodePembayaran) {
+        this.MetodePembayaran = MetodePembayaran;
+    }
+    public void setJumlahBayar(double JumlahBayar) {
+        this.JumlahBayar = JumlahBayar;
+    }
+    public void setStatusPembayaran(String StatusPembayaran) {
+        this.StatusPembayaran = StatusPembayaran;
+    }
     public void setTanggalPembayaran(LocalDate TanggalPembayaran) {
         this.TanggalPembayaran = TanggalPembayaran;
     }
