@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PesananKamar {
@@ -8,6 +9,25 @@ public class PesananKamar {
     private LocalDate tanggalCheckOut;
     private String statusPesanan;
     private List<Kamar> daftarKamar;
+
+    // Konstruktor
+    public PesananKamar() {
+        this.pelanggan = null;
+        this.nomorPesanan = "";
+        this.tanggalCheckIn = null;
+        this.tanggalCheckOut = null;
+        this.statusPesanan = "";
+        this.daftarKamar = new ArrayList<>();
+    }
+
+    public PesananKamar(Pelanggan pelanggan, String nomorPesanan, LocalDate tanggalCheckIn, LocalDate tanggalCheckOut, String statusPesanan, List<Kamar> daftarKamar) {
+        this.pelanggan = pelanggan;
+        this.nomorPesanan = nomorPesanan;
+        this.tanggalCheckIn = tanggalCheckIn;
+        this.tanggalCheckOut = tanggalCheckOut;
+        this.statusPesanan = statusPesanan;
+        this.daftarKamar = daftarKamar;
+    }
 
     // Selektor
     public Pelanggan getPelanggan() {
@@ -49,7 +69,7 @@ public class PesananKamar {
         this.daftarKamar = daftarKamar;
     }
 
-    public void tambahDaftarKamar(Kamar kamar) {
+    public void tambahKamar(Kamar kamar) {
         this.daftarKamar.add(kamar);
     }
 }

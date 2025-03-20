@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Pelanggan {
@@ -13,6 +14,7 @@ public class Pelanggan {
         this.alamat = "";
         this.nomorTelpon = "";
         this.email = "";
+        this.daftarPesanan = new ArrayList<>();
     }
  
     public Pelanggan (String nama, String alamat, String nomorTelpon, String email) {
@@ -20,6 +22,7 @@ public class Pelanggan {
         this.alamat = alamat;
         this.nomorTelpon = nomorTelpon;
         this.email = email;
+        this.daftarPesanan = new ArrayList<>();
     }
 
     // Selektor
@@ -56,7 +59,6 @@ public class Pelanggan {
         this.daftarPesanan = daftarPesanan;
     }
 
-    // Metode untuk menambahkan pesanan
     public void tambahPesanan(PesananKamar pesanan) {
         this.daftarPesanan.add(pesanan);
     }

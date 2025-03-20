@@ -7,8 +7,7 @@ public class TipeKamar {
     private double harga;
     private List<String> fasilitas;
 
-    // Method
-
+    // Konstruktor
     public TipeKamar() {
         this.namaTipe = "";
         this.harga = 0;
@@ -21,8 +20,7 @@ public class TipeKamar {
         this.fasilitas = fasilitas;
     }
 
-    //getter
-
+    // Selektor
     public String getNamaTipe () {
         return this.namaTipe;
     }
@@ -35,16 +33,13 @@ public class TipeKamar {
         return this.fasilitas;
     }
 
-    //setter
-
+    // Mutator
     public void setNamaTipe (String namaTipe){
         this.namaTipe = namaTipe;
     }
-
     public void setHarga (double harga) {
         this.harga = harga;
     }
-
     public void setFasilitas (List<String> fasilitas) {
         this.fasilitas = fasilitas;
     }
@@ -55,6 +50,5 @@ public class TipeKamar {
         System.out.println("Fasilitas : " + getFasilitas());
 
     }
-
 
 }
