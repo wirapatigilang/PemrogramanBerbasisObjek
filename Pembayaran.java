@@ -76,6 +76,3 @@ public class Pembayaran {
         return true;
     }
 }
-
-
-
