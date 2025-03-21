@@ -1,4 +1,5 @@
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class Main {
@@ -15,6 +16,10 @@ public class Main {
         Kamar Kamar004 = new Kamar("004", "Tersedia", Suite);
         Kamar Kamar005 = new Kamar("005", "Tersedia", Suite);
 
-        
+        Pelanggan Pelanggan1 = new Pelanggan("Gilang", "Lombok", "082340006777", "wirapatigilang@gmail.com", null);
+        PesananKamar Pesanan1 = new PesananKamar(Pelanggan1, "0001", LocalDate.of(2025, 10, 3), LocalDate.of(2025, 10, 5), "Reservasi", List.of(Kamar001));
+        Pelanggan1.setDaftarPesanan(List.of(Pesanan1));
+
+        Pelanggan1.infoPelanggan();
     }
 }

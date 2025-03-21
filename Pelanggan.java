@@ -17,12 +17,12 @@ public class Pelanggan {
         this.daftarPesanan = new ArrayList<>();
     }
  
-    public Pelanggan (String nama, String alamat, String nomorTelpon, String email) {
+    public Pelanggan (String nama, String alamat, String nomorTelpon, String email, List<PesananKamar> daftarPesanan) {
         this.nama = nama;
         this.alamat = alamat;
         this.nomorTelpon = nomorTelpon;
         this.email = email;
-        this.daftarPesanan = new ArrayList<>();
+        this.daftarPesanan = daftarPesanan;
     }
 
     // Selektor
@@ -61,5 +61,12 @@ public class Pelanggan {
 
     public void tambahPesanan(PesananKamar pesanan) {
         this.daftarPesanan.add(pesanan);
+    }
+
+    public void infoPelanggan() {
+        System.out.println("Nama : " + getNama());
+        System.out.println("Alamat : " + getAlamat());
+        System.out.println("Nomor Telepon : " + getNomorTelpon());
+        System.out.println("Dafter Pesanan : " + getDaftarPesanan());
     }
 }
