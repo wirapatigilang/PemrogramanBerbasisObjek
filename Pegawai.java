@@ -1,5 +1,4 @@
-public class Pegawai {
-    // Atribut
+public abstract class Pegawai {
     protected String idPegawai;
     protected String nama;
     protected String alamat;
@@ -13,6 +12,34 @@ public class Pegawai {
         this.posisi = posisi;
     }
 
+    // Selektor 
+    public String getIdPegawai() {
+        return idPegawai;
+    }
+    public String getNama() {
+        return nama;
+    }
+    public String getAlamat() {
+        return alamat;
+    }
+    public String getPosisi() {
+        return posisi;
+    }
+
+    // Mutator
+    public void setIdPegawai(String idPegawai) {
+        this.idPegawai = idPegawai;
+    }
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
+    }
+    public void setPosisi(String posisi) {
+        this.posisi = posisi;
+    }
+
     // Metode untuk menunjukkan data pegawai
     public void tunjukkanData() {
         System.out.println("ID Pegawai: " + idPegawai);
@@ -21,5 +48,4 @@ public class Pegawai {
         System.out.println("Posisi: " + posisi);
     }
 
-    // Metode login untuk autentikasi pegawai
 }
