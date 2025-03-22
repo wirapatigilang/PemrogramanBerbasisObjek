@@ -42,4 +42,5 @@ public class Resepsionis extends Pegawai {
         pelanggan.setDaftarPesanan(nota);
         pelanggan.tambahPesanan(kamar);
     }
+
 }
