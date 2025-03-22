@@ -1,14 +1,17 @@
 import java.time.LocalDate;
 
 public class Pembayaran {
+    private PesananKamar pesananKamar;
     private String MetodePembayaran;
     private double JumlahBayar;
     private String StatusPembayaran;
     private LocalDate TanggalPembayaran;
     public int lamaMenginap;
 
+
     // Konstruktor
     public Pembayaran() {
+        this.pesananKamar = null;
         this.MetodePembayaran = "Tunai";
         this.JumlahBayar = 0.0;
         this.StatusPembayaran = "Pending";
@@ -16,8 +19,9 @@ public class Pembayaran {
     }
 
     public Pembayaran(PesananKamar pesananKamar, String MetodePembayaran, String StatusPembayaran, LocalDate TanggalPembayaran) {
+        this.pesananKamar = pesananKamar;
         this.MetodePembayaran = MetodePembayaran;
-        this.JumlahBayar = hitungTotal(pesananKamar);
+        this.JumlahBayar = hitungTotal();
         this.StatusPembayaran = StatusPembayaran;
         this.TanggalPembayaran = TanggalPembayaran;
     }
@@ -79,7 +83,7 @@ public class Pembayaran {
         return true;
     }
 
-    public double hitungTotal(PesananKamar pesananKamar){
+    public double hitungTotal(){
         double totalHarga = 0;
         lamaMenginap = pesananKamar.getTanggalCheckIn().until(pesananKamar.getTanggalCheckOut()).getDays(); 
 
@@ -93,10 +97,28 @@ public class Pembayaran {
 
     // Method untuk menampilkan informasi pembayaran
     public void infoPembayaran() {
+        System.out.println("\n=== Informasi Pembayaran ===");
         System.out.println("Metode Pembayaran: " + MetodePembayaran);
-        System.out.println("Jumlah Bayar: " + JumlahBayar);
-        System.out.println("Lama Menginap: " + lamaMenginap + " hari");
+        System.out.println("Lama Menginap: " + pesananKamar.getTanggalCheckIn().until(pesananKamar.getTanggalCheckOut()).getDays() + " hari");
         System.out.println("Status Pembayaran: " + StatusPembayaran);
         System.out.println("Tanggal Pembayaran: " + TanggalPembayaran);
+        System.out.println("\n--- Rincian Harga Per Kamar ---");
+    
+        long lamaMenginap = pesananKamar.getTanggalCheckIn().until(pesananKamar.getTanggalCheckOut()).getDays();
+        double totalHarga = 0;
+    
+        for (Kamar kamar : pesananKamar.getDaftarKamar()) {
+            double hargaPerMalam = kamar.getTipe().getHarga();
+            double subtotal = hargaPerMalam * lamaMenginap;
+            totalHarga += subtotal;
+    
+            System.out.println("Kamar: " + kamar.getNomorKamar());
+            System.out.println("Tipe: " + kamar.getTipe().getNamaTipe());
+            System.out.println("Harga per malam: Rp " + hargaPerMalam);
+            System.out.println("Total untuk " + lamaMenginap + " malam: Rp " + subtotal);
+            System.out.println("-----------------------------");
+        }
+    
+        System.out.println("Total Pembayaran: Rp " + totalHarga);
     }
 }
