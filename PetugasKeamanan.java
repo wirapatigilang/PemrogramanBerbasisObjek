@@ -1,5 +1,4 @@
 public class PetugasKeamanan extends Pegawai {
-    private String shift;
     private String areaTanggungJawab;
     private String nomorRadio;
     private String sertifikasiKeamanan;
@@ -14,7 +13,7 @@ public class PetugasKeamanan extends Pegawai {
     }
 
     public PetugasKeamanan(String idPegawai, String nama, String alamat, String shift, String areaTanggungJawab, String nomorRadio, String sertifikasiKeamanan) {
-        super(idPegawai, nama, alamat, "Petugas Keamanan");
+        super(idPegawai, nama, alamat, "Petugas Keamanan", sertifikasiKeamanan);
         this.shift = shift;
         this.areaTanggungJawab = areaTanggungJawab;
         this.nomorRadio = nomorRadio;
@@ -22,35 +21,23 @@ public class PetugasKeamanan extends Pegawai {
     }
 
     // Selektor 
-    public String getShift() {
-        return shift;
-    }
-
     public String getAreaTanggungJawab() {
         return areaTanggungJawab;
     }
-
     public String getNomorRadio() {
         return nomorRadio;
     }
-
     public String getSertifikasiKeamanan() {
         return sertifikasiKeamanan;
     }
 
     // Mutator 
-    public void setShift(String shift) {
-        this.shift = shift;
-    }
-
     public void setAreaTanggungJawab(String areaTanggungJawab) {
         this.areaTanggungJawab = areaTanggungJawab;
     }
-
     public void setNomorRadio(String nomorRadio) {
         this.nomorRadio = nomorRadio;
     }
-
     public void setSertifikasiKeamanan(String sertifikasiKeamanan) {
         this.sertifikasiKeamanan = sertifikasiKeamanan;
     }

@@ -2,21 +2,24 @@ public abstract class Pegawai {
     protected String idPegawai;
     protected String nama;
     protected String alamat;
-    protected String posisi;
+    protected String email;
+    protected String shift; // Tolong tinjau lagi, ini perlu apa engga. And maksudnya shift pagi siang sore malem gtu?
 
     // Konstruktor
     public Pegawai() {
         this.idPegawai = "";
         this.nama = "";
         this.alamat = "";
-        this.posisi = "";
+        this.email = "";
+        this.shift = "";
     }
 
-    public Pegawai(String idPegawai, String nama, String alamat, String posisi) {
+    public Pegawai(String idPegawai, String nama, String alamat, String email, String shift) {
         this.idPegawai = idPegawai;
         this.nama = nama;
         this.alamat = alamat;
-        this.posisi = posisi;
+        this.email = email;
+        this.shift = shift;
     }
 
     // Selektor 
@@ -29,9 +32,6 @@ public abstract class Pegawai {
     public String getAlamat() {
         return alamat;
     }
-    public String getPosisi() {
-        return posisi;
-    }
 
     // Mutator
     public void setIdPegawai(String idPegawai) {
@@ -43,16 +43,11 @@ public abstract class Pegawai {
     public void setAlamat(String alamat) {
         this.alamat = alamat;
     }
-    public void setPosisi(String posisi) {
-        this.posisi = posisi;
-    }
 
     // Metode untuk menunjukkan data pegawai
     public void tunjukkanData() {
         System.out.println("ID Pegawai: " + idPegawai);
         System.out.println("Nama: " + nama);
         System.out.println("Alamat: " + alamat);
-        System.out.println("Posisi: " + posisi);
     }
-
 }

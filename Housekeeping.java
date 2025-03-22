@@ -2,9 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Housekeeping extends Pegawai {
-    private String shift;
     private List<String> daftarKamarTugas;
-    private double performanceRating;
+    private double performanceRating; //Ini apa yah?
 
     // Konstruktor
     public Housekeeping() {
@@ -15,17 +14,13 @@ public class Housekeeping extends Pegawai {
     }
 
     public Housekeeping(String idPegawai, String nama, String alamat, String shift) {
-        super(idPegawai, nama, alamat, "Housekeeping");
+        super(idPegawai, nama, alamat, "Housekeeping", shift);
         this.shift = shift;
         this.daftarKamarTugas = new ArrayList<>();
         this.performanceRating = 0.0;
     }
 
     // Selektor 
-    public String getShift() {
-        return shift;
-    }
-
     public List<String> getDaftarKamarTugas() {
         return daftarKamarTugas;
     }
@@ -35,14 +30,9 @@ public class Housekeeping extends Pegawai {
     }
 
     // Mutator 
-    public void setShift(String shift) {
-        this.shift = shift;
-    }
-
     public void setDaftarKamarTugas(List<String> daftarKamarTugas) {
         this.daftarKamarTugas = daftarKamarTugas;
     }
-
     public void setPerformanceRating(double performanceRating) {
         this.performanceRating = performanceRating;
     }
