@@ -14,9 +14,9 @@ public class Pembayaran {
         this.TanggalPembayaran = LocalDate.now();
     }
 
-    public Pembayaran(String MetodePembayaran, double JumlahBayar, String StatusPembayaran, LocalDate TanggalPembayaran) {
+    public Pembayaran(PesananKamar pesananKamar, String MetodePembayaran, String StatusPembayaran, LocalDate TanggalPembayaran) {
         this.MetodePembayaran = MetodePembayaran;
-        this.JumlahBayar = JumlahBayar;
+        this.JumlahBayar = hitungTotal(pesananKamar);
         this.StatusPembayaran = StatusPembayaran;
         this.TanggalPembayaran = TanggalPembayaran;
     }
@@ -76,6 +76,17 @@ public class Pembayaran {
         this.TanggalPembayaran = LocalDate.now();
         System.out.println("Pembayaran berhasil : " + JumlahBayar + " dengan metode pembayaran melalui " + MetodePembayaran);
         return true;
+    }
+
+    public double hitungTotal(PesananKamar pesananKamar){
+        double totalHarga = 0;
+        long lamaMenginap = pesananKamar.getTanggalCheckIn().until(pesananKamar.getTanggalCheckOut()).getDays(); 
+
+        for(Kamar kamar : pesananKamar.getDaftarKamar()) {
+            totalHarga += kamar.getTipe().getHarga()*lamaMenginap;
+        }
+        setJumlahBayar(totalHarga);
+        return totalHarga;
     }
 
     // Method untuk menampilkan informasi pembayaran

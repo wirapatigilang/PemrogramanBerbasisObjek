@@ -17,10 +17,13 @@ public class Main {
 
         // Membuat Pelanggan dan Pesanan Kamar
         Pelanggan pelanggan1 = new Pelanggan("Gilang", "Lombok", "082340006777", "wirapatigilang@gmail.com", null);
-        PesananKamar pesanan1 = new PesananKamar(pelanggan1, "P001", LocalDate.now(), LocalDate.now().plusDays(3), "Ongoing", new ArrayList<>());
-        pelanggan1.setDaftarPesanan(pesanan1);
+        PesananKamar nota1 = new PesananKamar(pelanggan1, "P001", LocalDate.now(), LocalDate.now().plusDays(3), "Ongoing", new ArrayList<>());
+        pelanggan1.setDaftarPesanan(nota1);
         pelanggan1.tambahPesanan(kamar005);
         pelanggan1.tambahPesanan(kamar001);
+        pelanggan1.tambahPesanan(kamar002);
+
+
 
         // Menampilkan info pelanggan
         pelanggan1.infoPelanggan();
@@ -30,7 +33,7 @@ public class Main {
         // ulasan1.printUlasan();
 
         // Membuat Pembayaran
-        Pembayaran pembayaran1 = new Pembayaran("Kartu Kredit", 500000, "Belum Lunas", LocalDate.now());
+        Pembayaran pembayaran1 = new Pembayaran(nota1,"Kartu Kredit", "Belum Lunas", LocalDate.now());
         pembayaran1.validasiPembayaran();
         System.out.println(pembayaran1.getStatusPembayaran());
         pembayaran1.prosesPembayaran();
