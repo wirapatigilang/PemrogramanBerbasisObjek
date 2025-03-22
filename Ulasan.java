@@ -64,10 +64,12 @@ public class Ulasan {
 
     // Method untuk menampilkan Ulasan
     public void printUlasan() {
-        System.out.println("Id Ulasan : " + IdUlasan);
-        System.out.println("Pelanggan : " + pelanggan.getNama());
-        System.out.println("Rating : " + rating + " bintang");
-        System.out.println("Komentar : " + komentar);
-        System.out.println("Tanggal Ulasan : " + tanggalUlasan);
+        System.out.println("\n=== Ulasan ===");
+        System.out.printf("Id Ulasan       : %s%n", IdUlasan);
+        System.out.printf("Pelanggan       : %s%n", pelanggan.getNama());
+        System.out.printf("Rating          : %d bintang%n", rating);
+        System.out.printf("Komentar        : %s%n", komentar);
+        System.out.printf("Tanggal Ulasan  : %s%n", tanggalUlasan);
+        System.out.println("================");
     }
 }

@@ -7,13 +7,16 @@ public class Housekeeping extends Pegawai {
     // Konstruktor
     public Housekeeping() {
         super();
-        this.shift = "";
         this.daftarKamarTugas = new ArrayList<>();
     }
+    
+    public Housekeeping(String id, String nama, String alamat, String email) {
+        super(id, nama, alamat, email);
+    }
 
-    public Housekeeping(String idPegawai, String nama, String alamat, String shift) {
-        super(idPegawai, nama, alamat, "Housekeeping", shift);
-        this.shift = shift;
+
+    public Housekeeping(String idPegawai, String nama, String alamat) {
+        super(idPegawai, nama, alamat, "Housekeeping");
         this.daftarKamarTugas = new ArrayList<>();
     }
 

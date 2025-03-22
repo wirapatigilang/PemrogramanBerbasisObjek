@@ -11,8 +11,8 @@ public class Resepsionis extends Pegawai {
         this.bahasaYangDikuasai = new ArrayList<>();
     }
 
-    public Resepsionis(String idPegawai, String nama, String alamat, String email, String shift) {
-        super(idPegawai, nama, alamat, "Resepsionis", shift);
+    public Resepsionis(String idPegawai, String nama, String alamat, String email) {
+        super(idPegawai, nama, alamat, "Resepsionis");
         this.bahasaYangDikuasai = new ArrayList<>();
     }
 

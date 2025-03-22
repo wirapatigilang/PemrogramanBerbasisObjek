@@ -65,14 +65,14 @@ public class Pelanggan {
     // Method untuk menampilkan data Pelanggan
     public void infoPelanggan() {
         System.out.println("=== Informasi Pelanggan ===");
-        System.out.println("Nama          : " + getNama());
-        System.out.println("Alamat        : " + getAlamat());
-        System.out.println("Nomor Telepon : " + getNomorTelpon());
-        System.out.println("Email         : " + getEmail());
+        System.out.printf("Nama          : %s%n", getNama());
+        System.out.printf("Alamat        : %s%n", getAlamat());
+        System.out.printf("Nomor Telepon : %s%n", getNomorTelpon());
+        System.out.printf("Email         : %s%n", getEmail());
         System.out.println("Daftar Pesanan:");
         if (this.daftarPesanan != null && !this.daftarPesanan.getDaftarKamar().isEmpty()) {
             for (Kamar kamar : this.daftarPesanan.getDaftarKamar()) {
-                System.out.println("  - Nomor Kamar: " + kamar.getNomorKamar());
+                System.out.printf("  - Nomor Kamar: %s%n", kamar.getNomorKamar());
             }
         } else {
             System.out.println("  Tidak ada pesanan.");

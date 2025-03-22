@@ -59,7 +59,6 @@ public class Pembayaran {
         if (JumlahBayar <= 0){
             return false;
         }
-
         if (MetodePembayaran.equals("Kartu Kredit") || MetodePembayaran.equals("Debit") || MetodePembayaran.equals("Transfer")){
             return true;
         } else {
@@ -68,28 +67,25 @@ public class Pembayaran {
     }
 
     // Method untuk melakukan proses pembayaran
-    public void  prosesPembayaran(double bayar){
-        if (!validasiPembayaran()){
-            System.err.println("Pembayaran Tidak Valid"); ;
-        }
-        else {
+    public void prosesPembayaran(double bayar) {
+        if (!validasiPembayaran()) {
+            System.err.println("Pembayaran Tidak Valid");
+        } else {
             if (bayar < JumlahBayar) {
-                JumlahBayar = JumlahBayar - bayar;
-                System.err.println("Pembayaran Anda Kurang : " + JumlahBayar);
-            }
-            else if (bayar>JumlahBayar) {
+                JumlahBayar -= bayar;
+                System.err.printf("Pembayaran Anda Kurang: Rp %.2f%n", JumlahBayar);
+            } else if (bayar > JumlahBayar) {
                 this.StatusPembayaran = "Lunas";
                 this.TanggalPembayaran = LocalDate.now();
                 double susuk = bayar - JumlahBayar;
-                System.out.println("Pembayaran berhasil : Rp " + JumlahBayar + " dengan metode pembayaran melalui " + MetodePembayaran);
-                System.out.println("Kembalian Anda : Rp " + susuk);
+                System.out.printf("Pembayaran berhasil: Rp %.2f dengan metode pembayaran melalui %s%n", JumlahBayar, MetodePembayaran);
+                System.out.printf("Kembalian Anda: Rp %.2f%n", susuk);
                 JumlahBayar = 0;
-            }
-            else {
+            } else {
                 this.StatusPembayaran = "Lunas";
                 this.TanggalPembayaran = LocalDate.now();
-                System.out.println("Pembayaran berhasil : Rp" + JumlahBayar + " dengan metode pembayaran melalui " + MetodePembayaran);
-                System.err.println("Pembayaran Valid");
+                System.out.printf("Pembayaran berhasil: Rp %.2f dengan metode pembayaran melalui %s%n", JumlahBayar, MetodePembayaran);
+                System.out.println("Pembayaran Valid");
                 JumlahBayar = 0;
             }
         }
@@ -110,10 +106,10 @@ public class Pembayaran {
     // Method untuk menampilkan informasi pembayaran
     public void infoPembayaran() {
         System.out.println("\n=== Informasi Pembayaran ===");
-        System.out.println("Metode Pembayaran: " + MetodePembayaran);
-        System.out.println("Lama Menginap: " + pesananKamar.getTanggalCheckIn().until(pesananKamar.getTanggalCheckOut()).getDays() + " hari");
-        System.out.println("Status Pembayaran: " + StatusPembayaran);
-        System.out.println("Tanggal Pembayaran: " + TanggalPembayaran);
+        System.out.printf("Metode Pembayaran : %s%n", MetodePembayaran);
+        System.out.printf("Lama Menginap     : %d hari%n", pesananKamar.getTanggalCheckIn().until(pesananKamar.getTanggalCheckOut()).getDays());
+        System.out.printf("Status Pembayaran : %s%n", StatusPembayaran);
+        System.out.printf("Tanggal Pembayaran: %s%n", TanggalPembayaran);
         System.out.println("\n--- Rincian Harga Per Kamar ---");
     
         long lamaMenginap = pesananKamar.getTanggalCheckIn().until(pesananKamar.getTanggalCheckOut()).getDays();
@@ -124,13 +120,13 @@ public class Pembayaran {
             double subtotal = hargaPerMalam * lamaMenginap;
             totalHarga += subtotal;
     
-            System.out.println("Kamar: " + kamar.getNomorKamar());
-            System.out.println("Tipe: " + kamar.getTipe().getNamaTipe());
-            System.out.println("Harga per malam: Rp " + hargaPerMalam);
-            System.out.println("Total untuk " + lamaMenginap + " malam: Rp " + subtotal);
+            System.out.printf("Kamar            : %s%n", kamar.getNomorKamar());
+            System.out.printf("Tipe             : %s%n", kamar.getTipe().getNamaTipe());
+            System.out.printf("Harga per malam  : Rp %.2f%n", hargaPerMalam);
+            System.out.printf("Total untuk %d malam: Rp %.2f%n", lamaMenginap, subtotal);
             System.out.println("-----------------------------");
         }
     
-        System.out.println("Total Pembayaran: Rp " + totalHarga);
+        System.out.printf("Total Pembayaran : Rp %.2f%n", totalHarga);
     }
 }

@@ -43,15 +43,17 @@ public class TipeKamar {
 
     // Method untuk menampilkan deskripsi kamar
     public void deskripsiKamar() {
-        System.out.println("Nama Tipe : " + getNamaTipe());
-        System.out.println("Harga : " + getHarga());
-        
+        System.out.println("\n=== Deskripsi Kamar ===");
+        System.out.printf("Nama Tipe : %s%n", getNamaTipe());
+        System.out.printf("Harga     : Rp %.2f%n", getHarga());
+    
         List<String> fasilitas = getFasilitas();
         if (fasilitas != null && !fasilitas.isEmpty()) {
-            System.out.println("Fasilitas : " + String.join(", ", fasilitas));
+            System.out.printf("Fasilitas : %s%n", String.join(", ", fasilitas));
         } else {
             System.out.println("Fasilitas : Tidak ada fasilitas yang tersedia");
         }
+        System.out.println("========================");
     }
 
 }

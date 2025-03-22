@@ -77,14 +77,21 @@ public class PesananKamar {
 
     // Method untuk menampilkan informasi lengkap Pesanan Kamar
     public void infoPesananKamar() {
-        System.out.println("Nomor Pesanan: " + nomorPesanan);
-        System.out.println("Pelanggan: " + (pelanggan != null ? pelanggan.getNama() : "Tidak ada"));
-        System.out.println("Tanggal Check-In: " + (tanggalCheckIn != null ? tanggalCheckIn : "Belum ditentukan"));
-        System.out.println("Tanggal Check-Out: " + (tanggalCheckOut != null ? tanggalCheckOut : "Belum ditentukan"));
-        System.out.println("Status Pesanan: " + statusPesanan);
-        System.out.println("Daftar Kamar: ");
-        for (Kamar kamar : daftarKamar) {
-            kamar.infoKamar();
+        System.out.println("\n=== Informasi Pesanan Kamar ===");
+        System.out.printf("Nomor Pesanan    : %s%n", nomorPesanan);
+        System.out.printf("Pelanggan        : %s%n", (pelanggan != null ? pelanggan.getNama() : "Tidak ada"));
+        System.out.printf("Tanggal Check-In : %s%n", (tanggalCheckIn != null ? tanggalCheckIn : "Belum ditentukan"));
+        System.out.printf("Tanggal Check-Out: %s%n", (tanggalCheckOut != null ? tanggalCheckOut : "Belum ditentukan"));
+        System.out.printf("Status Pesanan   : %s%n", statusPesanan);
+        System.out.println("\n--- Daftar Kamar ---");
+        if (daftarKamar.isEmpty()) {
+            System.out.println("Tidak ada kamar yang dipesan.");
+        } else {
+            for (Kamar kamar : daftarKamar) {
+                kamar.infoKamar();
+                System.out.println("-----------------------------");
+            }
         }
+        System.out.println("==============================");
     }
 }
