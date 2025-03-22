@@ -58,10 +58,9 @@ public class Pelanggan {
 
     // Method bagi Pelanggan untuk menambahkan suatu pesanan
     public void tambahPesanan(Kamar kamar) {
+        kamar.setStatusKamar("Tidak Tersedia");
         this.daftarPesanan.tambahKamar(kamar);
     }
-
-    
 
     // Method untuk menampilkan data Pelanggan
     public void infoPelanggan() {

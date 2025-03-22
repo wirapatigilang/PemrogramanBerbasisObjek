@@ -2,18 +2,21 @@ public class Kamar {
     private String nomorKamar;
     private String statusKamar;
     private TipeKamar tipe;
+    private String statusKebersihan;
 
     // Konstruktor
     public Kamar() {
         this.nomorKamar = "";
         this.statusKamar = "";
         this.tipe = new TipeKamar();
+        this.statusKebersihan = "";
     }
 
     public Kamar (String nomorKamar, String statusKamar, TipeKamar tipe) {
         this.nomorKamar = nomorKamar;
         this.statusKamar = statusKamar;
         this.tipe = tipe;
+        this.statusKebersihan = "Bersih";
     }
 
     // Selektor
@@ -26,6 +29,10 @@ public class Kamar {
     public TipeKamar getTipe () {
         return this.tipe;
     }
+    public String getStatusKebersihan () {
+        return this.statusKebersihan;
+    }
+
 
     // Mutator
     public void setNomorKamar (String nomorKamar) {
@@ -37,6 +44,9 @@ public class Kamar {
     public void setTipe (TipeKamar tipe) {
         this.tipe = tipe;
     }
+    public void setStatusKebersihan (String statusKebersihan) {
+        this.statusKebersihan = statusKebersihan;
+    }
 
     // Method untuk mengecek ketersediaan suatu kamar
     public boolean cekKetersediaan() {
@@ -45,8 +55,9 @@ public class Kamar {
 
     // Method untuk menampilkan informasi kamar
     public void infoKamar() {
-        System.out.println("Nomor Kamar: " + this.nomorKamar);
-        System.out.println("Status Kamar: " + this.statusKamar);
-        System.out.println("Tipe Kamar: " + this.tipe.getNamaTipe());
+        System.out.println("Nomor Kamar: " + this.getNomorKamar());
+        System.out.println("Status Kamar: " + this.getStatusKamar());
+        System.out.println("Tipe Kamar: " + this.getTipe().getNamaTipe());
+        System.out.println("Status Kebersihan: " + this.getStatusKebersihan());
     }
 }

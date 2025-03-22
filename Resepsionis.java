@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +24,39 @@ public class Resepsionis extends Pegawai {
     // Mutator 
     public void setBahasaYangDikuasai(List<String> bahasaYangDikuasai) {
         this.bahasaYangDikuasai = new ArrayList<>(bahasaYangDikuasai);
+    }
+
+    public void checkIn(Pelanggan pelanggan){
+        pelanggan.getDaftarPesanan().setTanggalCheckIn(LocalDate.now());
+        for (Kamar kamar : pelanggan.getDaftarPesanan().getDaftarKamar()) {
+            kamar.setStatusKebersihan("Kotor"); 
+        }
+        System.out.println("Sudah Bisa Checkin");
+
+    
+    }
+
+    public void checkIn(Pelanggan pelanggan, LocalDate tanggal){
+        pelanggan.getDaftarPesanan().setTanggalCheckIn(tanggal);
+        for (Kamar kamar : pelanggan.getDaftarPesanan().getDaftarKamar()) {
+            kamar.setStatusKebersihan("Kotor"); 
+        }
+        System.out.println("Sudah Bisa Checkin");
+    
+    }
+
+    
+
+    public void checkOut(Pelanggan pelanggan){
+        pelanggan.getDaftarPesanan().setTanggalCheckOut(LocalDate.now());
+        for (Kamar kamar : pelanggan.getDaftarPesanan().getDaftarKamar()) {
+            kamar.setStatusKamar("Tersedia");
+        }
+        pelanggan.getDaftarPesanan().setStatusPesanan("Finished");
+        pelanggan.getDaftarPesanan().setPelanggan(null);
+        System.out.println("Sudah Bisa Checkout");
+
+
     }
 
     // Method untuk menampilkan data lengkap resepsionis

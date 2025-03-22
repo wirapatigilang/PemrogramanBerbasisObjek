@@ -72,6 +72,7 @@ public class PesananKamar {
     // Method untuk menambahkan kamar
     public void tambahKamar(Kamar kamar) {
         this.daftarKamar.add(kamar);
+        
     }
 
     // Method untuk menampilkan informasi lengkap Pesanan Kamar
