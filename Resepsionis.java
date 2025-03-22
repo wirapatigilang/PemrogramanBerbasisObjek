@@ -39,8 +39,14 @@ public class Resepsionis extends Pegawai {
     // Contoh method untuk menerima reservasi (menggunakan method sebelumnya)
     public void terimaReservasi(Pelanggan pelanggan, Kamar kamar, String noPesanan) {
         PesananKamar nota = membuatPesananKamar(pelanggan, noPesanan);
-        pelanggan.setDaftarPesanan(nota);
-        pelanggan.tambahPesanan(kamar);
+        try {
+            nota.tambahKamar(kamar);
+            pelanggan.setDaftarPesanan(nota);
+            pelanggan.tambahPesanan(kamar);
+            System.out.println("Reservasi berhasil untuk kamar ini");
+        } catch (Exception e) {
+            System.out.println("Reservasi gagal : " + e.getMessage());
+        }
     }
 
 }
