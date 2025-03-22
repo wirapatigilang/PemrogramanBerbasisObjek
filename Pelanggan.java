@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class Pelanggan {
     private String nama;
     private String alamat;
@@ -62,14 +59,6 @@ public class Pelanggan {
     // Method bagi Pelanggan untuk menambahkan suatu pesanan
     public void tambahPesanan(Kamar kamar) {
         this.daftarPesanan.tambahKamar(kamar);
-    }
-
-    public void reservasi(Kamar kamar, PesananKamar pesanan) {
-        
-    }
-
-    public void pesan() {
-        
     }
 
     // Method untuk menampilkan data Pelanggan

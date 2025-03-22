@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,9 +33,14 @@ public class Resepsionis extends Pegawai {
         System.out.println("Bahasa yang dikuasai: " + String.join(", ", bahasaYangDikuasai));
     }
     
+    public PesananKamar membuatPesananKamar(Pelanggan pelanggan, String nomorPesanan) {
+        return new PesananKamar(pelanggan, nomorPesanan, null, null, "Ongoing", new ArrayList<>());
+    }
+
     // Contoh method untuk menerima reservasi (menggunakan method sebelumnya)
-    public void terimaReservasi(PesananKamar pesanan) {
-        System.out.println("Resepsionis " + nama + " menerima reservasi dengan nomor: " + pesanan.getNomorPesanan());
-        // Logika tambahan untuk memproses reservasi...
+    public void terimaReservasi(Pelanggan pelanggan, Kamar kamar, String noPesanan) {
+        PesananKamar nota = membuatPesananKamar(pelanggan, noPesanan);
+        pelanggan.setDaftarPesanan(nota);
+        pelanggan.tambahPesanan(kamar);
     }
 }

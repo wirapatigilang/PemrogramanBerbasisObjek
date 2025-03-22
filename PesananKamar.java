@@ -16,7 +16,7 @@ public class PesananKamar {
         this.nomorPesanan = "";
         this.tanggalCheckIn = null;
         this.tanggalCheckOut = null;
-        this.statusPesanan = "";
+        this.statusPesanan = "Ongoing";
         this.daftarKamar = new ArrayList<>();
     }
 
