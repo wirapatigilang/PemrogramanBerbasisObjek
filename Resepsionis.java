@@ -11,9 +11,10 @@ public class Resepsionis extends Pegawai {
         this.bahasaYangDikuasai = new ArrayList<>();
     }
 
-    public Resepsionis(String idPegawai, String nama, String alamat, String email) {
+    public Resepsionis(String idPegawai, String nama, String alamat, String email, String bahasa) {
         super(idPegawai, nama, alamat, "Resepsionis");
         this.bahasaYangDikuasai = new ArrayList<>();
+        this.bahasaYangDikuasai.add(bahasa);
     }
 
     // Selektor 
@@ -32,8 +33,6 @@ public class Resepsionis extends Pegawai {
             kamar.setStatusKebersihan("Kotor"); 
         }
         System.out.println("Sudah Bisa Checkin");
-
-    
     }
 
     public void checkIn(Pelanggan pelanggan, LocalDate tanggal){
@@ -42,10 +41,7 @@ public class Resepsionis extends Pegawai {
             kamar.setStatusKebersihan("Kotor"); 
         }
         System.out.println("Sudah Bisa Checkin");
-    
     }
-
-    
 
     public void checkOut(Pelanggan pelanggan){
         pelanggan.getDaftarPesanan().setTanggalCheckOut(LocalDate.now());
@@ -55,14 +51,12 @@ public class Resepsionis extends Pegawai {
         pelanggan.getDaftarPesanan().setStatusPesanan("Finished");
         pelanggan.getDaftarPesanan().setPelanggan(null);
         System.out.println("Sudah Bisa Checkout");
-
-
     }
 
     // Method untuk menampilkan data lengkap resepsionis
     @Override
-    public void tunjukkanData() {
-        super.tunjukkanData();
+    public void infoPegawai() {
+        super.infoPegawai();
         System.out.println("Bahasa yang dikuasai: " + String.join(", ", bahasaYangDikuasai));
     }
 }

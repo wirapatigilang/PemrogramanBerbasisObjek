@@ -94,7 +94,9 @@ public class Pembayaran {
     public double hitungTotal(){
         double totalHarga = 0;
         lamaMenginap = pesananKamar.getTanggalCheckIn().until(pesananKamar.getTanggalCheckOut()).getDays(); 
-
+        if (lamaMenginap == 0) {
+            lamaMenginap += 1;
+        }
         for(Kamar kamar : pesananKamar.getDaftarKamar()) {
             totalHarga += kamar.getTipe().getHarga() * lamaMenginap;
         }
@@ -114,7 +116,9 @@ public class Pembayaran {
     
         long lamaMenginap = pesananKamar.getTanggalCheckIn().until(pesananKamar.getTanggalCheckOut()).getDays();
         double totalHarga = 0;
-    
+        if (lamaMenginap == 0) {
+            lamaMenginap += 1;
+        }
         for (Kamar kamar : pesananKamar.getDaftarKamar()) {
             double hargaPerMalam = kamar.getTipe().getHarga();
             double subtotal = hargaPerMalam * lamaMenginap;

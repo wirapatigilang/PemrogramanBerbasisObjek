@@ -21,16 +21,16 @@ public class Kamar {
 
     // Selektor
     public String getNomorKamar (){
-        return this.nomorKamar;
+        return nomorKamar;
     }
     public String getStatusKamar () {
-        return this.statusKamar;
+        return statusKamar;
     }
     public TipeKamar getTipe () {
-        return this.tipe;
+        return tipe;
     }
     public String getStatusKebersihan () {
-        return this.statusKebersihan;
+        return statusKebersihan;
     }
 
 
@@ -38,8 +38,8 @@ public class Kamar {
     public void setNomorKamar (String nomorKamar) {
         this.nomorKamar = nomorKamar;
     }
-    public void setStatusKamar (String statusKamar) {
-        this.statusKamar = statusKamar;
+    public void setStatusKamar(String status) {
+        this.statusKamar = status;
     }
     public void setTipe (TipeKamar tipe) {
         this.tipe = tipe;

@@ -1,4 +1,4 @@
-public abstract class Pegawai {
+public class Pegawai {
     protected String idPegawai;
     protected String nama;
     protected String alamat;
@@ -42,7 +42,7 @@ public abstract class Pegawai {
     }
 
     // Metode untuk menunjukkan data pegawai
-    public void tunjukkanData() {
+    public void infoPegawai() {
         System.out.printf("ID Pegawai: %s%n", idPegawai);
         System.out.printf("Nama: %s%n", nama);
         System.out.printf("Alamat: %s%n", alamat);
