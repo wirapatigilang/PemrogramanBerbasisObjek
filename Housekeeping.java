@@ -38,19 +38,13 @@ public class Housekeeping extends Pegawai {
     @Override
     public void infoPegawai() {
         super.infoPegawai();
-        if (!daftarKamarTugas.isEmpty()) {
-            System.out.println("Daftar Tugas Kamar:");
-            for (Kamar kamar : daftarKamarTugas) {
-                kamar.getNomorKamar();
+        if (nota != null && !nota.getDaftarKamar().isEmpty()) {
+            System.out.println("Daftar Tugas Kamar sesuai Nota:");
+            for (Kamar kamar : nota.getDaftarKamar()) {
+                System.out.println("Kamar " + kamar.getNomorKamar() + " - Status Kebersihan: " + kamar.getStatusKebersihan());
             }
         } else {
-            System.out.println("Belum memiliki daftar tugas Kamar");
-        }
-
-        if (nota != null) {
-            System.out.println("Nomor Pesanan: " + nota.getNomorPesanan());
-        } else {
-            System.out.println("Belum ada nota pesanan");
+            System.out.println("Belum ada daftar tugas Kamar sesuai Nota");
         }
     }
     

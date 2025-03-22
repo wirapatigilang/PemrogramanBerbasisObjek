@@ -12,7 +12,7 @@ public class Resepsionis extends Pegawai {
     }
 
     public Resepsionis(String idPegawai, String nama, String alamat, String email, String bahasa) {
-        super(idPegawai, nama, alamat, "Resepsionis");
+        super(idPegawai, nama, alamat, email);
         this.bahasaYangDikuasai = new ArrayList<>();
         this.bahasaYangDikuasai.add(bahasa);
     }
