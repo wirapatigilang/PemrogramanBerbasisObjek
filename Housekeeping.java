@@ -8,11 +8,44 @@ public class Housekeeping extends Pegawai {
     private double performanceRating;
 
     // Konstruktor
+    public Housekeeping() {
+        super();
+        this.shift = "";
+        this.daftarKamarTugas = new ArrayList<>();
+        this.performanceRating = 0.0;
+    }
+
     public Housekeeping(String idPegawai, String nama, String alamat, String shift) {
         super(idPegawai, nama, alamat, "Housekeeping");
         this.shift = shift;
         this.daftarKamarTugas = new ArrayList<>();
         this.performanceRating = 0.0;
+    }
+
+    // Selektor (getter)
+    public String getShift() {
+        return shift;
+    }
+
+    public List<String> getDaftarKamarTugas() {
+        return daftarKamarTugas;
+    }
+
+    public double getPerformanceRating() {
+        return performanceRating;
+    }
+
+    // Mutator (setter)
+    public void setShift(String shift) {
+        this.shift = shift;
+    }
+
+    public void setDaftarKamarTugas(List<String> daftarKamarTugas) {
+        this.daftarKamarTugas = daftarKamarTugas;
+    }
+
+    public void setPerformanceRating(double performanceRating) {
+        this.performanceRating = performanceRating;
     }
 
     // Method untuk mengubah shift kerja

@@ -6,11 +6,53 @@ public class PetugasKeamanan extends Pegawai {
     private String sertifikasiKeamanan;
 
     // Konstruktor
+    public PetugasKeamanan() {
+        super();
+        this.shift = "";
+        this.areaTanggungJawab = "";
+        this.nomorRadio = "";
+        this.sertifikasiKeamanan = "";
+    }
+
     public PetugasKeamanan(String idPegawai, String nama, String alamat, String shift, String areaTanggungJawab, String nomorRadio, String sertifikasiKeamanan) {
         super(idPegawai, nama, alamat, "Petugas Keamanan");
         this.shift = shift;
         this.areaTanggungJawab = areaTanggungJawab;
         this.nomorRadio = nomorRadio;
+        this.sertifikasiKeamanan = sertifikasiKeamanan;
+    }
+
+    // Selektor (getter)
+    public String getShift() {
+        return shift;
+    }
+
+    public String getAreaTanggungJawab() {
+        return areaTanggungJawab;
+    }
+
+    public String getNomorRadio() {
+        return nomorRadio;
+    }
+
+    public String getSertifikasiKeamanan() {
+        return sertifikasiKeamanan;
+    }
+
+    // Mutator (setter)
+    public void setShift(String shift) {
+        this.shift = shift;
+    }
+
+    public void setAreaTanggungJawab(String areaTanggungJawab) {
+        this.areaTanggungJawab = areaTanggungJawab;
+    }
+
+    public void setNomorRadio(String nomorRadio) {
+        this.nomorRadio = nomorRadio;
+    }
+
+    public void setSertifikasiKeamanan(String sertifikasiKeamanan) {
         this.sertifikasiKeamanan = sertifikasiKeamanan;
     }
 

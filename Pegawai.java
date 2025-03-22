@@ -5,6 +5,13 @@ public abstract class Pegawai {
     protected String posisi;
 
     // Konstruktor
+    public Pegawai() {
+        this.idPegawai = "";
+        this.nama = "";
+        this.alamat = "";
+        this.posisi = "";
+    }
+
     public Pegawai(String idPegawai, String nama, String alamat, String posisi) {
         this.idPegawai = idPegawai;
         this.nama = nama;
