@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Housekeeping extends Pegawai {
-    // Atribut khusus
     private String shift;
     private List<String> daftarKamarTugas;
     private double performanceRating;
@@ -22,7 +21,7 @@ public class Housekeeping extends Pegawai {
         this.performanceRating = 0.0;
     }
 
-    // Selektor (getter)
+    // Selektor 
     public String getShift() {
         return shift;
     }
@@ -35,7 +34,7 @@ public class Housekeeping extends Pegawai {
         return performanceRating;
     }
 
-    // Mutator (setter)
+    // Mutator 
     public void setShift(String shift) {
         this.shift = shift;
     }

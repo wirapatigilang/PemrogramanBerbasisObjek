@@ -1,5 +1,4 @@
 public class PetugasKeamanan extends Pegawai {
-    // Atribut khusus
     private String shift;
     private String areaTanggungJawab;
     private String nomorRadio;
@@ -22,7 +21,7 @@ public class PetugasKeamanan extends Pegawai {
         this.sertifikasiKeamanan = sertifikasiKeamanan;
     }
 
-    // Selektor (getter)
+    // Selektor 
     public String getShift() {
         return shift;
     }
@@ -39,7 +38,7 @@ public class PetugasKeamanan extends Pegawai {
         return sertifikasiKeamanan;
     }
 
-    // Mutator (setter)
+    // Mutator 
     public void setShift(String shift) {
         this.shift = shift;
     }

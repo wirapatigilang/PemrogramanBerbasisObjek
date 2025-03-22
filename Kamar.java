@@ -38,4 +38,15 @@ public class Kamar {
         this.tipe = tipe;
     }
 
+    // Method untuk mengecek ketersediaan suatu kamar
+    public boolean cekKetersediaan() {
+        return this.statusKamar.equalsIgnoreCase("tersedia");
+    }
+
+    // Method untuk menampilkan informasi kamar
+    public void infoKamar() {
+        System.out.println("Nomor Kamar: " + this.nomorKamar);
+        System.out.println("Status Kamar: " + this.statusKamar);
+        System.out.println("Tipe Kamar: " + this.tipe.getNamaTipe());
+    }
 }

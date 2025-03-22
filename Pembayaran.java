@@ -49,6 +49,7 @@ public class Pembayaran {
         this.TanggalPembayaran = TanggalPembayaran;
     }
 
+    // Method untuk memvalidasi pembayaran, if pembayaran is valid
     public boolean validasiPembayaran(){
         if (JumlahBayar <= 0){
             System.out.println("Jumlah pembayaran tidak valid");
@@ -65,6 +66,7 @@ public class Pembayaran {
         }
     }
 
+    // Method untuk melakukan proses pembayaran
     public boolean prosesPembayaran(){
         if (!validasiPembayaran()){
             return false;
@@ -74,5 +76,13 @@ public class Pembayaran {
         this.TanggalPembayaran = LocalDate.now();
         System.out.println("Pembayaran berhasil : " + JumlahBayar + " dengan metode pembayaran melalui " + MetodePembayaran);
         return true;
+    }
+
+    // Method untuk menampilkan informasi pembayaran
+    public void infoPembayaran() {
+        System.out.println("Metode Pembayaran: " + MetodePembayaran);
+        System.out.println("Jumlah Bayar: " + JumlahBayar);
+        System.out.println("Status Pembayaran: " + StatusPembayaran);
+        System.out.println("Tanggal Pembayaran: " + TanggalPembayaran);
     }
 }

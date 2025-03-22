@@ -59,11 +59,13 @@ public class Pelanggan {
         this.daftarPesanan = daftarPesanan;
     }
 
+    // Method bagi Pelanggan untuk menambahkan suatu pesanan
     public void tambahPesanan(PesananKamar pesanan) {
         this.daftarPesanan.add(pesanan);
         pesanan.setPelanggan(this);
     }
 
+    // Method untuk menampilkan data Pelanggan
     public void infoPelanggan() {
         System.out.println("Nama : " + getNama());
         System.out.println("Alamat : " + getAlamat());

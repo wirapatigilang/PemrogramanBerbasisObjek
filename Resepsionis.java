@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Resepsionis extends Pegawai {
-    // Atribut khusus
     private String shift;
     private String email;
     private List<String> bahasaYangDikuasai;

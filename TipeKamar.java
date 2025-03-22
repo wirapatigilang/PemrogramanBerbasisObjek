@@ -23,11 +23,9 @@ public class TipeKamar {
     public String getNamaTipe () {
         return this.namaTipe;
     }
-
     public double getHarga () {
         return this.harga;
     }
-
     public List<String> getFasilitas () {
         return this.fasilitas;
     }
@@ -43,11 +41,17 @@ public class TipeKamar {
         this.fasilitas = fasilitas;
     }
 
-    public void deskripsiKamar () {
+    // Method untuk menampilkan deskripsi kamar
+    public void deskripsiKamar() {
         System.out.println("Nama Tipe : " + getNamaTipe());
         System.out.println("Harga : " + getHarga());
-        System.out.println("Fasilitas : " + getFasilitas());
-
+        
+        List<String> fasilitas = getFasilitas();
+        if (fasilitas != null && !fasilitas.isEmpty()) {
+            System.out.println("Fasilitas : " + String.join(", ", fasilitas));
+        } else {
+            System.out.println("Fasilitas : Tidak ada fasilitas yang tersedia");
+        }
     }
 
 }

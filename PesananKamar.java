@@ -69,7 +69,21 @@ public class PesananKamar {
         this.daftarKamar = daftarKamar;
     }
 
+    // Method untuk menambahkan kamar
     public void tambahKamar(Kamar kamar) {
         this.daftarKamar.add(kamar);
+    }
+
+    // Method untuk menampilkan informasi lengkap Pesanan Kamar
+    public void infoPesananKamar() {
+        System.out.println("Nomor Pesanan: " + nomorPesanan);
+        System.out.println("Pelanggan: " + (pelanggan != null ? pelanggan.getNama() : "Tidak ada"));
+        System.out.println("Tanggal Check-In: " + (tanggalCheckIn != null ? tanggalCheckIn : "Belum ditentukan"));
+        System.out.println("Tanggal Check-Out: " + (tanggalCheckOut != null ? tanggalCheckOut : "Belum ditentukan"));
+        System.out.println("Status Pesanan: " + statusPesanan);
+        System.out.println("Daftar Kamar: ");
+        for (Kamar kamar : daftarKamar) {
+            kamar.infoKamar();
+        }
     }
 }
