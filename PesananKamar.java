@@ -84,7 +84,6 @@ public class PesananKamar {
         System.out.println("Daftar Kamar: ");
         for (Kamar kamar : daftarKamar) {
             kamar.infoKamar();
-        System.err.println("");
         }
     }
 }
