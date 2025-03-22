@@ -65,6 +65,10 @@ public class Pelanggan {
         pesanan.setPelanggan(this);
     }
 
+    public void reservasi(Kamar kamar, PesananKamar pesanan) {
+
+    }
+
     // Method untuk menampilkan data Pelanggan
     public void infoPelanggan() {
         System.out.println("Nama : " + getNama());
