@@ -5,6 +5,7 @@ public class Pembayaran {
     private double JumlahBayar;
     private String StatusPembayaran;
     private LocalDate TanggalPembayaran;
+    public int lamaMenginap;
 
     // Konstruktor
     public Pembayaran() {
@@ -80,19 +81,21 @@ public class Pembayaran {
 
     public double hitungTotal(PesananKamar pesananKamar){
         double totalHarga = 0;
-        long lamaMenginap = pesananKamar.getTanggalCheckIn().until(pesananKamar.getTanggalCheckOut()).getDays(); 
+        lamaMenginap = pesananKamar.getTanggalCheckIn().until(pesananKamar.getTanggalCheckOut()).getDays(); 
 
         for(Kamar kamar : pesananKamar.getDaftarKamar()) {
-            totalHarga += kamar.getTipe().getHarga()*lamaMenginap;
+            totalHarga += kamar.getTipe().getHarga() * lamaMenginap;
         }
         setJumlahBayar(totalHarga);
         return totalHarga;
+
     }
 
     // Method untuk menampilkan informasi pembayaran
     public void infoPembayaran() {
         System.out.println("Metode Pembayaran: " + MetodePembayaran);
         System.out.println("Jumlah Bayar: " + JumlahBayar);
+        System.out.println("Lama Menginap: " + lamaMenginap + " hari");
         System.out.println("Status Pembayaran: " + StatusPembayaran);
         System.out.println("Tanggal Pembayaran: " + TanggalPembayaran);
     }
