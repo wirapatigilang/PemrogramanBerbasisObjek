@@ -6,7 +6,7 @@ public class Pelanggan {
     private String alamat;
     private String nomorTelpon;
     private String email;
-    private List<PesananKamar> daftarPesanan;
+    private PesananKamar daftarPesanan;
 
     // Konstruktor
     public Pelanggan () {
@@ -14,15 +14,15 @@ public class Pelanggan {
         this.alamat = "";
         this.nomorTelpon = "";
         this.email = "";
-        this.daftarPesanan = new ArrayList<>();
+        this.daftarPesanan = null;
     }
  
-    public Pelanggan (String nama, String alamat, String nomorTelpon, String email, List<PesananKamar> daftarPesanan) {
+    public Pelanggan (String nama, String alamat, String nomorTelpon, String email, PesananKamar daftarPesanan) {
         this.nama = nama;
         this.alamat = alamat;
         this.nomorTelpon = nomorTelpon;
         this.email = email;
-        this.daftarPesanan = daftarPesanan != null ? daftarPesanan : new ArrayList<>();
+        this.daftarPesanan = daftarPesanan;
     }
 
     // Selektor
@@ -38,7 +38,7 @@ public class Pelanggan {
     public String getEmail() {
         return email;
     }
-    public List<PesananKamar> getDaftarPesanan() {
+    public PesananKamar getDaftarPesanan() {
         return daftarPesanan;
     }
 
@@ -55,18 +55,21 @@ public class Pelanggan {
     public void setEmail(String email) {
         this.email = email;
     }
-    public void setDaftarPesanan(List<PesananKamar> daftarPesanan) {
+    public void setDaftarPesanan(PesananKamar daftarPesanan) {
         this.daftarPesanan = daftarPesanan;
     }
 
     // Method bagi Pelanggan untuk menambahkan suatu pesanan
-    public void tambahPesanan(PesananKamar pesanan) {
-        this.daftarPesanan.add(pesanan);
-        pesanan.setPelanggan(this);
+    public void tambahPesanan(Kamar kamar) {
+        this.daftarPesanan.tambahKamar(kamar);
     }
 
     public void reservasi(Kamar kamar, PesananKamar pesanan) {
+        
+    }
 
+    public void pesan() {
+        
     }
 
     // Method untuk menampilkan data Pelanggan
@@ -75,8 +78,8 @@ public class Pelanggan {
         System.out.println("Alamat : " + getAlamat());
         System.out.println("Nomor Telepon : " + getNomorTelpon());
         System.out.println("Daftar Pesanan");
-        for (PesananKamar pesanan : getDaftarPesanan()) {
-            System.out.println("Nomor Pesanan: " + pesanan.getNomorPesanan());
+        for (Kamar kamar : this.daftarPesanan.getDaftarKamar()) {
+            System.out.println("Nomor Pesanan: " + kamar.getNomorKamar());
         }
     }
 }
