@@ -22,7 +22,7 @@ public class Pelanggan {
         this.alamat = alamat;
         this.nomorTelpon = nomorTelpon;
         this.email = email;
-        this.daftarPesanan = daftarPesanan;
+        this.daftarPesanan = daftarPesanan != null ? daftarPesanan : new ArrayList<>();
     }
 
     // Selektor
@@ -61,12 +61,16 @@ public class Pelanggan {
 
     public void tambahPesanan(PesananKamar pesanan) {
         this.daftarPesanan.add(pesanan);
+        pesanan.setPelanggan(this);
     }
 
     public void infoPelanggan() {
         System.out.println("Nama : " + getNama());
         System.out.println("Alamat : " + getAlamat());
         System.out.println("Nomor Telepon : " + getNomorTelpon());
-        System.out.println("Dafter Pesanan : " + getDaftarPesanan());
+        System.out.println("Daftar Pesanan");
+        for (PesananKamar pesanan : getDaftarPesanan()) {
+            System.out.println("Nomor Pesanan: " + pesanan.getNomorPesanan());
+        }
     }
 }
