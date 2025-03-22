@@ -34,10 +34,30 @@ public class Main {
 
         // Membuat Pembayaran
         Pembayaran pembayaran1 = new Pembayaran(nota1,"Kartu Kredit", "Belum Lunas", LocalDate.now());
-        pembayaran1.validasiPembayaran();
-        System.out.println(pembayaran1.getStatusPembayaran());
-        pembayaran1.prosesPembayaran();
+        // pembayaran1.validasiPembayaran();
+        // System.out.println(pembayaran1.getStatusPembayaran());
+        // pembayaran1.prosesPembayaran();
         System.out.println(pembayaran1.getStatusPembayaran());
         pembayaran1.infoPembayaran();
+
+        //Membuat Pelannggan Baru
+        Pelanggan pelanggan2 = new Pelanggan("Kiki", "Blora", "08123455678", "kikikeren123@gmail.com", null);
+        PesananKamar nota2 = new PesananKamar(pelanggan2, "P002", LocalDate.now(), LocalDate.now().plusDays(2), "Ongoing", new ArrayList<>());
+        pelanggan2.setDaftarPesanan(nota2);
+        pelanggan2.tambahPesanan(kamar005);
+        pelanggan2.infoPelanggan();
+
+
+        PesananKamar nota3 = new PesananKamar(pelanggan2, "P002", LocalDate.now(), LocalDate.now().plusDays(2), "Ongoing", new ArrayList<>());
+        pelanggan2.setDaftarPesanan(nota3);
+        pelanggan2.tambahPesanan(kamar003);
+        pelanggan2.tambahPesanan(kamar004);
+
+        pelanggan2.infoPelanggan();
+
+
+
+        Pembayaran pembayaran2 = new Pembayaran(nota2, "Transfer", "Belum Lunas", LocalDate.now());
+
     }
 }

@@ -57,30 +57,30 @@ public class Pembayaran {
     // Method untuk memvalidasi pembayaran, if pembayaran is valid
     public boolean validasiPembayaran(){
         if (JumlahBayar <= 0){
-            System.out.println("Jumlah pembayaran tidak valid");
+            // System.out.println("Jumlah pembayaran tidak valid");
             return false;
         }
 
         if (MetodePembayaran.equals("Kartu Kredit") || MetodePembayaran.equals("Debit") || MetodePembayaran.equals("Transfer")){
-            System.out.println("Validasi berhasil");
+            // System.out.println("Validasi berhasil");
             return true;
         } else {
-            System.out.println("Metode pembayaran tidak valid");
+            // System.out.println("Metode pembayaran tidak valid");
             return false;
             
         }
     }
 
     // Method untuk melakukan proses pembayaran
-    public boolean prosesPembayaran(){
+    public String prosesPembayaran(double bayar){
         if (!validasiPembayaran()){
-            return false;
+            return "Pembayaran Tidak Valid";
         }
 
         this.StatusPembayaran = "Lunas";
         this.TanggalPembayaran = LocalDate.now();
         System.out.println("Pembayaran berhasil : " + JumlahBayar + " dengan metode pembayaran melalui " + MetodePembayaran);
-        return true;
+        return "Pembayaran Valid";
     }
 
     public double hitungTotal(){
