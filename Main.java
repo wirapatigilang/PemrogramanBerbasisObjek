@@ -33,11 +33,9 @@ public class Main {
         // ulasan1.printUlasan();
 
         // Membuat Pembayaran
-        Pembayaran pembayaran1 = new Pembayaran(nota1,"Kartu Kredit", "Belum Lunas", LocalDate.now());
-        // pembayaran1.validasiPembayaran();
+        Pembayaran pembayaran1 = new Pembayaran(nota1,"Kartu Kredit", LocalDate.now());
         // System.out.println(pembayaran1.getStatusPembayaran());
-        // pembayaran1.prosesPembayaran();
-        System.out.println(pembayaran1.getStatusPembayaran());
+        pembayaran1.prosesPembayaran(2100001);
         pembayaran1.infoPembayaran();
 
         //Membuat Pelannggan Baru
@@ -54,10 +52,7 @@ public class Main {
         pelanggan2.tambahPesanan(kamar004);
 
         pelanggan2.infoPelanggan();
-
-
-
-        Pembayaran pembayaran2 = new Pembayaran(nota2, "Transfer", "Belum Lunas", LocalDate.now());
+        Pembayaran pembayaran2 = new Pembayaran(nota2, "Transfer", LocalDate.now());
 
     }
 }

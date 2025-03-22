@@ -18,11 +18,11 @@ public class Pembayaran {
         this.TanggalPembayaran = LocalDate.now();
     }
 
-    public Pembayaran(PesananKamar pesananKamar, String MetodePembayaran, String StatusPembayaran, LocalDate TanggalPembayaran) {
+    public Pembayaran(PesananKamar pesananKamar, String MetodePembayaran, LocalDate TanggalPembayaran) {
         this.pesananKamar = pesananKamar;
         this.MetodePembayaran = MetodePembayaran;
         this.JumlahBayar = hitungTotal();
-        this.StatusPembayaran = StatusPembayaran;
+        this.StatusPembayaran = "Belum Lunas";
         this.TanggalPembayaran = TanggalPembayaran;
     }
 
@@ -57,30 +57,42 @@ public class Pembayaran {
     // Method untuk memvalidasi pembayaran, if pembayaran is valid
     public boolean validasiPembayaran(){
         if (JumlahBayar <= 0){
-            // System.out.println("Jumlah pembayaran tidak valid");
             return false;
         }
 
         if (MetodePembayaran.equals("Kartu Kredit") || MetodePembayaran.equals("Debit") || MetodePembayaran.equals("Transfer")){
-            // System.out.println("Validasi berhasil");
             return true;
         } else {
-            // System.out.println("Metode pembayaran tidak valid");
             return false;
-            
         }
     }
 
     // Method untuk melakukan proses pembayaran
-    public String prosesPembayaran(double bayar){
+    public void  prosesPembayaran(double bayar){
         if (!validasiPembayaran()){
-            return "Pembayaran Tidak Valid";
+            System.err.println("Pembayaran Tidak Valid"); ;
         }
-
-        this.StatusPembayaran = "Lunas";
-        this.TanggalPembayaran = LocalDate.now();
-        System.out.println("Pembayaran berhasil : " + JumlahBayar + " dengan metode pembayaran melalui " + MetodePembayaran);
-        return "Pembayaran Valid";
+        else {
+            if (bayar < JumlahBayar) {
+                JumlahBayar = JumlahBayar - bayar;
+                System.err.println("Pembayaran Anda Kurang : " + JumlahBayar);
+            }
+            else if (bayar>JumlahBayar) {
+                this.StatusPembayaran = "Lunas";
+                this.TanggalPembayaran = LocalDate.now();
+                double susuk = bayar - JumlahBayar;
+                System.out.println("Pembayaran berhasil : Rp " + JumlahBayar + " dengan metode pembayaran melalui " + MetodePembayaran);
+                System.out.println("Kembalian Anda : Rp " + susuk);
+                JumlahBayar = 0;
+            }
+            else {
+                this.StatusPembayaran = "Lunas";
+                this.TanggalPembayaran = LocalDate.now();
+                System.out.println("Pembayaran berhasil : Rp" + JumlahBayar + " dengan metode pembayaran melalui " + MetodePembayaran);
+                System.err.println("Pembayaran Valid");
+                JumlahBayar = 0;
+            }
+        }
     }
 
     public double hitungTotal(){
