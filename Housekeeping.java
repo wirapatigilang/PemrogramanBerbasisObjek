@@ -16,6 +16,9 @@ public class Housekeeping extends Pegawai {
         super(id, nama, alamat, email);
         this.nota = nota;
         this.daftarKamarTugas = new ArrayList<>();
+        if (nota != null && !nota.getDaftarKamar().isEmpty()) {
+            this.daftarKamarTugas = nota.getDaftarKamar();
+        }
     }
 
     // Selektor 
@@ -43,13 +46,20 @@ public class Housekeeping extends Pegawai {
             for (Kamar kamar : nota.getDaftarKamar()) {
                 System.out.println("Kamar " + kamar.getNomorKamar() + " - Status Kebersihan: " + kamar.getStatusKebersihan());
             }
-        } else {
-            System.out.println("Belum ada daftar tugas Kamar sesuai Nota");
+        } 
+        else if (nota == null && !daftarKamarTugas.isEmpty()) {
+            System.out.println("Daftar Tugas Kamar:");
+            for (Kamar kamar : daftarKamarTugas) {
+                System.out.println("Kamar " + kamar.getNomorKamar() + " - Status Kebersihan: " + kamar.getStatusKebersihan());
+            }
+        }
+        else {
+            System.out.println("Belum ada daftar tugas Kamar");
         }
     }
     
     // Method untuk membersihkan kamar
-    public void bersihkanKamar() {
+    public void bersihkanKamar() { // akan membersihkan kamar yang di nota
         if (nota == null) {
             System.out.println("Belum ada daftar tugas Kamar");
         } else {

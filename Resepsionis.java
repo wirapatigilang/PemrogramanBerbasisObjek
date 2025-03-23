@@ -27,30 +27,45 @@ public class Resepsionis extends Pegawai {
         this.bahasaYangDikuasai = new ArrayList<>(bahasaYangDikuasai);
     }
 
+    // Method untuk membantu pelanggan check-in pada tanggal sekarang
     public void checkIn(Pelanggan pelanggan){
         pelanggan.getDaftarPesanan().setTanggalCheckIn(LocalDate.now());
         for (Kamar kamar : pelanggan.getDaftarPesanan().getDaftarKamar()) {
             kamar.setStatusKebersihan("Kotor"); 
+            kamar.setStatusKamar("Tidak Tersedia");
         }
-        System.out.println("Sudah Bisa Checkin");
+        System.out.println("CheckIn Berhasil");
     }
 
+    // Method untuk membantu pelanggan check-in pada tanggal yang ditentukan pelanggan
     public void checkIn(Pelanggan pelanggan, LocalDate tanggal){
         pelanggan.getDaftarPesanan().setTanggalCheckIn(tanggal);
         for (Kamar kamar : pelanggan.getDaftarPesanan().getDaftarKamar()) {
-            kamar.setStatusKebersihan("Kotor"); 
+            kamar.setStatusKebersihan("Kotor");
+            kamar.setStatusKamar("Tidak Tersedia");
         }
-        System.out.println("Sudah Bisa Checkin");
+        System.out.println("CheckIn Berhasil");
     }
 
-    public void checkOut(Pelanggan pelanggan){
+    // Method untuk membantu pelanggan check-out
+    public void checkOut(Pelanggan pelanggan) {
+        if (pelanggan == null || pelanggan.getDaftarPesanan() == null) {
+            System.out.println("Pelanggan atau daftar pesanan tidak valid");
+            return;
+        }
+        
         pelanggan.getDaftarPesanan().setTanggalCheckOut(LocalDate.now());
+
         for (Kamar kamar : pelanggan.getDaftarPesanan().getDaftarKamar()) {
-            kamar.setStatusKamar("Tersedia");
+            if (kamar != null) {
+                kamar.setStatusKamar("Tersedia");
+            }
         }
         pelanggan.getDaftarPesanan().setStatusPesanan("Finished");
         pelanggan.getDaftarPesanan().setPelanggan(null);
-        System.out.println("Sudah Bisa Checkout");
+        pelanggan.setDaftarPesanan(null);
+
+        System.out.println("CheckOut Berhasil");
     }
 
     // Method untuk menampilkan data lengkap resepsionis

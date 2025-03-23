@@ -3,6 +3,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/*
+    * Kelompok ASTERIX (kelompok 2)*
+ * Kevin Adi Santoso (24060123130081)
+ * Lalu Gilang Wirapati (24060123140162)
+ * Muhammad Azka Subhan (24060123130086)
+ * Mohammad Izza Hakiki (24060123140139)
+ */
+
 public class Main {
     public static void main(String[] args) {
         
@@ -28,7 +36,6 @@ public class Main {
         simulasiPelanggan2(daftarKamar, daftarPegawai);
 
 
-        
         System.out.println("\n========== SISTEM BERAKHIR ==========");
     }
     
@@ -175,7 +182,8 @@ public class Main {
         System.out.println("1. Membuat kamar baru dengan constructor:");
         Kamar kamarBaru = new Kamar("601", "Tersedia", new TipeKamar("VIP", 600000, 
                                     new ArrayList<>(List.of("Smart TV", "Jacuzzi", "Emperor Bed"))));
-        
+        System.out.println("Kamar " + kamarBaru.getNomorKamar() + " berhasil dibuat");
+
         // Menggunakan getter
         System.out.println("\n2. Menggunakan getter:");
         System.out.println("Nomor Kamar: " + kamarBaru.getNomorKamar());
@@ -215,7 +223,7 @@ public class Main {
         
         // Demo pegawai umum
         System.out.println("1. Pegawai Umum:");
-        Pegawai pegawaiBaru = new Pegawai("P999", "John Doe", "Yogyakarta", "john@hotel.com");
+        Pegawai pegawaiBaru = new Pegawai("P999", "Kevin Adi", "Ungaran", "kepinganteng@hotel.com");
         
         // Menggunakan getter
         System.out.println("\nMenggunakan getter:");

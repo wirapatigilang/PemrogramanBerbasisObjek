@@ -48,7 +48,6 @@ public class Ulasan {
     public void setPelanggan(Pelanggan pelanggan) {
         this.pelanggan = pelanggan;
     }
-
     public void setRating(int rating) throws Exception {
         if (rating < 0 || rating > 5) {
             throw new Exception("Rating harus diantara 0 sampai 5");

@@ -91,6 +91,7 @@ public class Pembayaran {
         }
     }
 
+    // Method untuk menghitung total harga
     public double hitungTotal(){
         double totalHarga = 0;
         lamaMenginap = pesananKamar.getTanggalCheckIn().until(pesananKamar.getTanggalCheckOut()).getDays(); 
