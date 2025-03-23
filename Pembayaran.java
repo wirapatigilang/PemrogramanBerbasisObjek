@@ -2,42 +2,42 @@ import java.time.LocalDate;
 
 public class Pembayaran {
     private PesananKamar pesananKamar;
-    private String MetodePembayaran;
-    private double JumlahBayar;
-    private String StatusPembayaran;
-    private LocalDate TanggalPembayaran;
+    private String metodePembayaran;
+    private double jumlahBayar;
+    private String statusPembayaran;
+    private LocalDate tanggalPembayaran;
     public int lamaMenginap;
 
 
     // Konstruktor
     public Pembayaran() {
         this.pesananKamar = null;
-        this.MetodePembayaran = "Tunai";
-        this.JumlahBayar = 0.0;
-        this.StatusPembayaran = "Pending";
-        this.TanggalPembayaran = LocalDate.now();
+        this.metodePembayaran = "Tunai";
+        this.jumlahBayar = 0.0;
+        this.statusPembayaran = "Pending";
+        this.tanggalPembayaran = LocalDate.now();
     }
 
-    public Pembayaran(PesananKamar pesananKamar, String MetodePembayaran, LocalDate TanggalPembayaran) {
+    public Pembayaran(PesananKamar pesananKamar, String metodePembayaran, LocalDate tanggalPembayaran) {
         this.pesananKamar = pesananKamar;
-        this.MetodePembayaran = MetodePembayaran;
-        this.JumlahBayar = hitungTotal();
-        this.StatusPembayaran = "Belum Lunas";
-        this.TanggalPembayaran = TanggalPembayaran;
+        this.metodePembayaran = metodePembayaran;
+        this.jumlahBayar = hitungTotal();
+        this.statusPembayaran = "Belum Lunas";
+        this.tanggalPembayaran = tanggalPembayaran;
     }
 
     // Selektor
-    public String getMetodePembayaran() {
-        return MetodePembayaran;
+    public String getmetodePembayaran() {
+        return metodePembayaran;
     }
     public double getJumlahBayar() {
-        return JumlahBayar;
+        return jumlahBayar;
     }
-    public String getStatusPembayaran() {
-        return StatusPembayaran;
+    public String getstatusPembayaran() {
+        return statusPembayaran;
     }
-    public LocalDate getTanggalPembayaran() {
-        return TanggalPembayaran;
+    public LocalDate gettanggalPembayaran() {
+        return tanggalPembayaran;
     }
     public PesananKamar getPesananKamar() {
         return pesananKamar;
@@ -47,17 +47,17 @@ public class Pembayaran {
     }
 
     // Mutator
-    public void setMetodePembayaran(String MetodePembayaran) {
-        this.MetodePembayaran = MetodePembayaran;
+    public void setmetodePembayaran(String metodePembayaran) {
+        this.metodePembayaran = metodePembayaran;
     }
-    public void setJumlahBayar(double JumlahBayar) {
-        this.JumlahBayar = JumlahBayar;
+    public void setJumlahBayar(double jumlahBayar) {
+        this.jumlahBayar = jumlahBayar;
     }
-    public void setStatusPembayaran(String StatusPembayaran) {
-        this.StatusPembayaran = StatusPembayaran;
+    public void setstatusPembayaran(String statusPembayaran) {
+        this.statusPembayaran = statusPembayaran;
     }
-    public void setTanggalPembayaran(LocalDate TanggalPembayaran) {
-        this.TanggalPembayaran = TanggalPembayaran;
+    public void settanggalPembayaran(LocalDate tanggalPembayaran) {
+        this.tanggalPembayaran = tanggalPembayaran;
     }
     public void setPesananKamar(PesananKamar pesananKamar) {
         this.pesananKamar = pesananKamar;
@@ -68,10 +68,10 @@ public class Pembayaran {
 
     // Method untuk memvalidasi pembayaran, if pembayaran is valid
     public boolean validasiPembayaran(){
-        if (JumlahBayar <= 0){
+        if (jumlahBayar <= 0){
             return false;
         }
-        if (MetodePembayaran.equals("Kartu Kredit") || MetodePembayaran.equals("Debit") || MetodePembayaran.equals("Transfer")){
+        if (metodePembayaran.equals("Kartu Kredit") || metodePembayaran.equals("Debit") || metodePembayaran.equals("Transfer")){
             return true;
         } else {
             return false;
@@ -83,22 +83,22 @@ public class Pembayaran {
         if (!validasiPembayaran()) {
             System.err.println("Pembayaran Tidak Valid");
         } else {
-            if (bayar < JumlahBayar) {
-                JumlahBayar -= bayar;
-                System.err.printf("Pembayaran Anda Kurang: Rp %.2f%n", JumlahBayar);
-            } else if (bayar > JumlahBayar) {
-                this.StatusPembayaran = "Lunas";
-                this.TanggalPembayaran = LocalDate.now();
-                double susuk = bayar - JumlahBayar;
-                System.out.printf("Pembayaran berhasil: Rp %.2f dengan metode pembayaran melalui %s%n", JumlahBayar, MetodePembayaran);
+            if (bayar < jumlahBayar) {
+                jumlahBayar -= bayar;
+                System.err.printf("Pembayaran Anda Kurang: Rp %.2f%n", jumlahBayar);
+            } else if (bayar > jumlahBayar) {
+                this.statusPembayaran = "Lunas";
+                this.tanggalPembayaran = LocalDate.now();
+                double susuk = bayar - jumlahBayar;
+                System.out.printf("Pembayaran berhasil: Rp %.2f dengan metode pembayaran melalui %s%n", jumlahBayar, metodePembayaran);
                 System.out.printf("Kembalian Anda: Rp %.2f%n", susuk);
-                JumlahBayar = 0;
+                jumlahBayar = 0;
             } else {
-                this.StatusPembayaran = "Lunas";
-                this.TanggalPembayaran = LocalDate.now();
-                System.out.printf("Pembayaran berhasil: Rp %.2f dengan metode pembayaran melalui %s%n", JumlahBayar, MetodePembayaran);
+                this.statusPembayaran = "Lunas";
+                this.tanggalPembayaran = LocalDate.now();
+                System.out.printf("Pembayaran berhasil: Rp %.2f dengan metode pembayaran melalui %s%n", jumlahBayar, metodePembayaran);
                 System.out.println("Pembayaran Valid");
-                JumlahBayar = 0;
+                jumlahBayar = 0;
             }
         }
     }
@@ -121,10 +121,10 @@ public class Pembayaran {
     // Method untuk menampilkan informasi pembayaran
     public void infoPembayaran() {
         System.out.println("\n=== Informasi Pembayaran ===");
-        System.out.printf("Metode Pembayaran : %s%n", MetodePembayaran);
+        System.out.printf("Metode Pembayaran : %s%n", metodePembayaran);
         System.out.printf("Lama Menginap     : %d hari%n", pesananKamar.getTanggalCheckIn().until(pesananKamar.getTanggalCheckOut()).getDays());
-        System.out.printf("Status Pembayaran : %s%n", StatusPembayaran);
-        System.out.printf("Tanggal Pembayaran: %s%n", TanggalPembayaran);
+        System.out.printf("Status Pembayaran : %s%n", statusPembayaran);
+        System.out.printf("Tanggal Pembayaran: %s%n", tanggalPembayaran);
         System.out.println("\n--- Rincian Harga Per Kamar ---");
     
         long lamaMenginap = pesananKamar.getTanggalCheckIn().until(pesananKamar.getTanggalCheckOut()).getDays();
