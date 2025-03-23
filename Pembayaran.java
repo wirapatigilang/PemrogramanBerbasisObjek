@@ -39,6 +39,12 @@ public class Pembayaran {
     public LocalDate getTanggalPembayaran() {
         return TanggalPembayaran;
     }
+    public PesananKamar getPesananKamar() {
+        return pesananKamar;
+    }
+    public int getLamaMenginap() {
+        return lamaMenginap;
+    }
 
     // Mutator
     public void setMetodePembayaran(String MetodePembayaran) {
@@ -52,6 +58,12 @@ public class Pembayaran {
     }
     public void setTanggalPembayaran(LocalDate TanggalPembayaran) {
         this.TanggalPembayaran = TanggalPembayaran;
+    }
+    public void setPesananKamar(PesananKamar pesananKamar) {
+        this.pesananKamar = pesananKamar;
+    }
+    public void setLamaMenginap(int lamaMenginap) {
+        this.lamaMenginap = lamaMenginap;
     }
 
     // Method untuk memvalidasi pembayaran, if pembayaran is valid
