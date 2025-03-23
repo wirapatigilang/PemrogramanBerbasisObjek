@@ -29,6 +29,9 @@ public class Pegawai {
     public String getAlamat() {
         return alamat;
     }
+    public String getEmail() {
+        return email;
+    }
 
     // Mutator
     public void setIdPegawai(String idPegawai) {
@@ -39,6 +42,9 @@ public class Pegawai {
     }
     public void setAlamat(String alamat) {
         this.alamat = alamat;
+    }
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     // Metode untuk menunjukkan data pegawai
